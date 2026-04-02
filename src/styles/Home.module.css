@@ -1,0 +1,68 @@
+.mainLayout {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile */
+  gap: 20px;
+  margin-top: 20px;
+}
+
+@media (min-width: 1024px) {
+  .mainLayout {
+    grid-template-columns: 250px 1fr 250px; /* Tre colonne: Side | Center | Side */
+    border-top: 1px solid #000;
+    padding-top: 20px;
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Colonna centrale con bordo laterale per separare */
+.centerColumn {
+  border-left: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
+  padding: 0 20px;
+}
+
+.articleCard {
+  border-bottom: 1px solid #ebebeb;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.articleCard img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-family: var(--nyt-serif);
+  font-size: 1.2rem;
+  line-height: 1.2;
+  margin: 5px 0;
+}
+
+/* Titolo più grande per la notizia principale al centro */
+.centerColumn .articleCard:first-child .title {
+  font-size: 2.2rem;
+  font-weight: 900;
+}
+
+.abstract {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.articleLink {
+  text-decoration: none; /* Rimuove la sottolineatura blu classica */
+  color: inherit; /* Mantiene il colore del testo definito nel CSS */
+  display: block;
+}
+
+.articleLink:hover .title {
+  text-decoration: underline; /* Sottolinea il titolo solo al passaggio del mouse */
+  color: #121212;
+}

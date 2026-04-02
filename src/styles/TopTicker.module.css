@@ -1,0 +1,46 @@
+.tickerWrapper {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-bottom: 1px solid #000;
+  height: 40px;
+  overflow: hidden;
+  font-family: var(--nyt-sans);
+}
+
+.label {
+  background-color: #000;
+  color: #fff;
+  padding: 0 15px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 0.7rem;
+  font-weight: 900;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.scrollContainer {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.scrollText {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scroll 30s linear infinite;
+}
+
+.tickerItem {
+  padding-left: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #333;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}

@@ -1,0 +1,43 @@
+/* Importazione Font Editoriali */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Libre+Franklin:wght@300;400;700&display=swap');
+
+:root {
+  --nyt-serif: 'Playfair Display', serif;
+  --nyt-sans: 'Libre Franklin', sans-serif;
+  --border-color: #ebebeb;
+  --text-main: #121212;
+  --text-muted: #666;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--nyt-sans);
+  -webkit-font-smoothing: antialiased;
+  background-color: #fff;
+  color: var(--text-main);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Link globali */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Stile per i messaggi di stato */
+.status-message {
+  text-align: center;
+  font-family: var(--nyt-serif);
+  padding: 50px;
+  font-size: 1.5rem;
+}
