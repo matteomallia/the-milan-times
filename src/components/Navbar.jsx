@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { setLanguage } from '../features/language/languageSlice'; // Utilizzo dello stato globale Redux [cite: 17, 372]
-import styles from '../styles/Navbar.module.css'; // Utilizzo dei CSS Modules per evitare conflitti [cite: 20, 345]
+import { setLanguage } from '../features/language/languageSlice'; // Utilizzo dello stato globale Redux
+import styles from '../styles/Navbar.module.css'; // Utilizzo dei CSS Modules per evitare conflitti
 import Weather from './Weather';
 
 const Navbar = () => {
-  const dispatch = useDispatch(); // Hook per inviare azioni a Redux [cite: 28, 501]
-  const currentLang = useSelector((state) => state.language.current); // Hook per leggere lo stato globale [cite: 27, 488]
+  const dispatch = useDispatch(); // Hook per inviare azioni a Redux
+  const currentLang = useSelector((state) => state.language.current); // Hook per leggere lo stato globale
 
   // Oggetto traduzioni per l'interfaccia multilingua
   const translations = {
@@ -17,7 +17,7 @@ const Navbar = () => {
 
   const t = translations[currentLang];
 
-  // Definizione delle categorie con mappatura per l'API del NYT [cite: 18, 521]
+  // Definizione delle categorie con mappatura per l'API del NYT
   const categories = [
     { label: t.world, path: 'world' },
     { label: t.business, path: 'business' },
@@ -66,7 +66,7 @@ const Navbar = () => {
         <Weather /> 
       </div>
 
-      {/* Menu di Navigazione Principale tramite React Router [cite: 6, 79] */}
+      {/* Menu di Navigazione Principale tramite React Router */}
       <ul className={styles.menu}>
         {categories.map((cat) => (
           <li key={cat.path}>
