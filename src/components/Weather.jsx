@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 
 const Weather = () => {
-  // Usiamo useSelector per leggere la lingua e mostrare il meteo coerente [cite: 489, 497]
+  // Usiamo useSelector per leggere la lingua e mostrare il meteo coerente
   const currentLang = useSelector((state) => state.language.current);
 
   const weatherLabels = {
