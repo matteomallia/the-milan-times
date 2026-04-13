@@ -1,14 +1,14 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { fetchNews } from '../features/news/newsSlice'; // Importazione dell'azione asincrona [cite: 606]
-import styles from '../styles/Home.module.css'; // Utilizzo dei CSS Modules [cite: 345, 346]
+import { fetchNews } from '../features/news/newsSlice'; // Importazione dell'azione asincrona
+import styles from '../styles/Home.module.css'; // Utilizzo dei CSS Modules
 
 const Home = () => {
-  const { id } = useParams(); // Hook di React Router per i parametri URL [cite: 79]
-  const dispatch = useDispatch(); // Hook per inviare azioni allo store [cite: 502, 509]
+  const { id } = useParams(); // Hook di React Router per i parametri URL
+  const dispatch = useDispatch(); // Hook per inviare azioni allo store
   
-  // Selezione degli stati globali da Redux [cite: 489, 497]
+  // Selezione degli stati globali da Redux
   const { articles, status, error } = useSelector((state) => state.news);
   const currentLang = useSelector((state) => state.language.current);
 
@@ -22,17 +22,17 @@ const Home = () => {
   const m = messages[currentLang];
 
   useEffect(() => {
-    // Effetto collaterale: recupero dati all'avvio o al cambio categoria [cite: 181, 182]
+    // Effetto collaterale: recupero dati all'avvio o al cambio categoria
     dispatch(fetchNews(id || 'world')); 
-    window.scrollTo(0, 0); // Riporta l'utente in cima alla pagina [cite: 550]
+    window.scrollTo(0, 0); // Riporta l'utente in cima alla pagina
   }, [dispatch, id]);
 
-  // 1. Stato di caricamento (Loading) [cite: 549, 557]
+  // 1. Stato di caricamento (Loading)
   if (status === 'loading') {
     return <div className="status-msg">{m.loading}</div>;
   }
 
-  // 2. Stato di errore (Error) [cite: 558, 567]
+  // 2. Stato di errore (Error)
   if (status === 'failed') {
     return (
       <div className="status-msg" style={{ color: 'red' }}>
@@ -41,17 +41,17 @@ const Home = () => {
     );
   }
 
-  // 4. Stato di "no data" [cite: 589, 597]
+  // 4. Stato di "no data"
   if (status === 'succeeded' && articles.length === 0) {
     return <div className="status-msg">{m.noData}</div>;
   }
 
-  // Dividiamo gli articoli per la struttura a tre colonne (Stato di Successo) [cite: 576, 582]
+  // Dividiamo gli articoli per la struttura a tre colonne (Stato di Successo)
   const leftArticles = articles.slice(0, 3);
   const centerArticles = articles.slice(3, 8);
   const rightArticles = articles.slice(8, 12);
 
-  // Funzione modulare per renderizzare la card dell'articolo [cite: 89, 108]
+  // Funzione modulare per renderizzare la card dell'articolo
   const renderArticle = (article, index) => (
     <article key={index} className={styles.articleCard}>
       <a href={article.url} target="_blank" rel="noopener noreferrer" className={styles.articleLink}>
