@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import TopTicker from './components/TopTicker';
-import Home from './pages/Home';
+import ArticlesPage from './pages/ArticlesPage'; // Import aggiornato
 
 function App() {
   return (
@@ -10,8 +10,8 @@ function App() {
         <Navbar />
         <TopTicker/>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/section/:id" element={<Home />} /> {/* Gestirà le categorie */}
+          <Route path="/" element={<ArticlesPage />} />
+          <Route path="/section/:id" element={<ArticlesPage />} /> {/* Gestirà le categorie */}
         </Routes>
       </div>
     </Router>

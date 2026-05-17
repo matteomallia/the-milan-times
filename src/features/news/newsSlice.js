@@ -1,13 +1,16 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { nytApi } from '../../services/nytApi'; // Assicurati che i due punti (..) puntino correttamente a src/services
 
-const API_KEY = import.meta.env.VITE_NYT_API_KEY;
-
-export const fetchNews = createAsyncThunk('news/fetchNews', async (section) => {
-  const response = await axios.get(
-    `https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=${API_KEY}`
-  );
-  return response.data.results;
+export const fetchNews = createAsyncThunk('news/fetchNews', async (section, { rejectWithValue }) => {
+  try {
+    // Usiamo il modulo API dedicato invece di scrivere l'URL qui dentro
+    const data = await nytApi.fetchTopStories(section);
+    return data;
+  } catch (error) {
+    // Gestione dell'errore robusta richiesta da Giorgio
+    const errorMessage = error.response?.data?.fault?.faultstring || error.message || 'Errore di rete';
+    return rejectWithValue(errorMessage);
+  }
 });
 
 const newsSlice = createSlice({
@@ -16,14 +19,17 @@ const newsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchNews.pending, (state) => { state.status = 'loading'; })
+      .addCase(fetchNews.pending, (state) => { 
+        state.status = 'loading'; 
+        state.error = null;
+      })
       .addCase(fetchNews.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.articles = action.payload;
       })
       .addCase(fetchNews.rejected, (state, action) => {
         state.status = 'failed';
-        state.error = action.error.message;
+        state.error = action.payload || action.error.message; 
       });
   },
 });
