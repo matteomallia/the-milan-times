@@ -17,7 +17,7 @@
 
 ## 🛠️ Tech Stack
 
-- **React 18** (Vite come build tool)
+- **React 19** (Vite come build tool)
 - **Redux Toolkit**: Gestione dello stato globale per news e preferenze lingua.
 - **React Router Dom**: Gestione del routing e dei parametri URL.
 - **Axios**: Chiamate HTTP asincrone verso le API del NYT.
@@ -33,6 +33,6 @@ src/
 ├── app/            # Configurazione Store Redux
 ├── components/     # Componenti riutilizzabili (Navbar, Ticker, Weather)
 ├── features/       # Slice Redux (newsSlice, languageSlice)
-├── pages/          # Componenti di pagina (Home)
+├── pages/          # Componenti di pagina (ArticlesPage)
 ├── styles/         # CSS Modules
 └── main.jsx        # Entry point dell'applicazione

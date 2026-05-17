@@ -8,7 +8,7 @@ export const translations = {
     categories: [
       { id: 'world', label: 'Mondo' },
       { id: 'business', label: 'Economia' },
-      { id: 'technology', label: 'Stile' }, // o la sezione che hai associato a stile
+      { id: 'technology', label: 'Stile' }, 
       { id: 'food', label: 'Cucina' }
     ],
     ticker: {

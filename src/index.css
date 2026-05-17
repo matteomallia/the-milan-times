@@ -1,4 +1,4 @@
-/* Importazione Font Editoriali */
+
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Libre+Franklin:wght@300;400;700&display=swap');
 
 :root {
@@ -28,13 +28,13 @@ body {
   padding: 0 20px;
 }
 
-/* Link globali */
+
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* Stile per i messaggi di stato */
+
 .status-message {
   text-align: center;
   font-family: var(--nyt-serif);

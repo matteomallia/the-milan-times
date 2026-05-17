@@ -1,7 +1,7 @@
-import styles from '../styles/Home.module.css'; // Sfrutta gli stessi stili esistenti
+import styles from '../styles/Home.module.css'; 
 
 const ArticleCard = ({ article, readMoreText }) => {
-  // Se l'articolo per qualche motivo è corrotto, evitiamo il crash dell'app
+  
   if (!article) return null;
 
   return (

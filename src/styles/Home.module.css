@@ -1,13 +1,13 @@
 .mainLayout {
   display: grid;
-  grid-template-columns: 1fr; /* Mobile */
+  grid-template-columns: 1fr;
   gap: 20px;
   margin-top: 20px;
 }
 
 @media (min-width: 1024px) {
   .mainLayout {
-    grid-template-columns: 250px 1fr 250px; /* Tre colonne: Side | Center | Side */
+    grid-template-columns: 250px 1fr 250px;
     border-top: 1px solid #000;
     padding-top: 20px;
   }
@@ -19,7 +19,6 @@
   gap: 20px;
 }
 
-/* Colonna centrale con bordo laterale per separare */
 .centerColumn {
   border-left: 1px solid #ebebeb;
   border-right: 1px solid #ebebeb;
@@ -45,7 +44,6 @@
   margin: 5px 0;
 }
 
-/* Titolo più grande per la notizia principale al centro */
 .centerColumn .articleCard:first-child .title {
   font-size: 2.2rem;
   font-weight: 900;
@@ -57,12 +55,12 @@
 }
 
 .articleLink {
-  text-decoration: none; /* Rimuove la sottolineatura blu classica */
-  color: inherit; /* Mantiene il colore del testo definito nel CSS */
+  text-decoration: none; 
+  color: inherit;
   display: block;
 }
 
 .articleLink:hover .title {
-  text-decoration: underline; /* Sottolinea il titolo solo al passaggio del mouse */
+  text-decoration: underline; 
   color: #121212;
 }

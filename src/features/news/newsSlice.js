@@ -1,13 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { nytApi } from '../../services/nytApi'; // Assicurati che i due punti (..) puntino correttamente a src/services
+import { nytApi } from '../../services/nytApi'; 
 
 export const fetchNews = createAsyncThunk('news/fetchNews', async (section, { rejectWithValue }) => {
   try {
-    // Usiamo il modulo API dedicato invece di scrivere l'URL qui dentro
     const data = await nytApi.fetchTopStories(section);
     return data;
   } catch (error) {
-    // Gestione dell'errore robusta richiesta da Giorgio
     const errorMessage = error.response?.data?.fault?.faultstring || error.message || 'Errore di rete';
     return rejectWithValue(errorMessage);
   }

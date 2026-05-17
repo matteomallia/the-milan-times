@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import TopTicker from './components/TopTicker';
-import ArticlesPage from './pages/ArticlesPage'; // Import aggiornato
+import ArticlesPage from './pages/ArticlesPage'; 
 
 function App() {
   return (

@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { setLanguage } from '../features/language/languageSlice'; // Assicurati che il percorso sia corretto
+import { setLanguage } from '../features/language/languageSlice';
 import { translations } from '../data/translations';
 import styles from '../styles/Navbar.module.css';
 
@@ -8,10 +8,8 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const currentLang = useSelector((state) => state.language.current);
 
-  // 1. Recuperiamo i testi centralizzati
   const t = translations[currentLang] || translations.en;
 
-  // 2. Array delle lingue disponibili per generare i bottoni in loop
   const availableLanguages = [
     { code: 'it', label: 'IT' },
     { code: 'en', label: 'EN' },
